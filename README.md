@@ -13,8 +13,6 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 4. Open this repo in [VS Code Insiders](https://code.visualstudio.com/insiders/) with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) installed.
 5. Open a lesson under `lessons/` and pick **Deno** from the kernel picker (top right of the notebook).
 
-> Note: the Deno-kernel-in-VS-Code path hasn't been hands-on verified yet in this project — if the kernel picker doesn't show Deno after step 2, that's a known open item, not something wrong with your setup specifically.
-
 ## Structure
 
 - `lessons/core-concepts/` — things to know: System One models, the primitives, structure, confidence. Numbered, sequential, meant to be read in order.

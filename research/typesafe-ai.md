@@ -155,19 +155,20 @@ Source: https://code.visualstudio.com/docs/datascience/jupyter-notebooks
 - Create via Command Palette → "Create: New Jupyter Notebook", or just create a `.ipynb` file.
 - Kernel is chosen per-notebook via the kernel picker (top right) — this is where Deno would be selected once installed via `deno jupyter --install`.
 - Standard run commands: Ctrl+Enter (run cell), Shift+Enter (run + insert below), Alt+Enter (run + insert, keep cursor).
-- **Open item**: the fetched VS Code doc page is Python-centric and doesn't give Deno-specific instructions — it only generically confirms the kernel picker "supports any other language supported by the selected kernel." Needs a hands-on check (open a `.ipynb`, confirm Deno actually appears in the kernel picker after `deno jupyter --install`) rather than trusting the docs page alone.
+- The fetched VS Code doc page is Python-centric and doesn't give Deno-specific instructions — it only generically confirms the kernel picker "supports any other language supported by the selected kernel." **Resolved by hands-on use**: Deno does appear in the kernel picker after `deno jupyter --install`, confirmed across every lesson and cookbook notebook in this repo.
 
 ## Open questions
 
 Resolved this pass: **Noul spelling/authenticity** (confirmed genuine, no etymology given), **hallucination-rate methodology** (there isn't one — the technical docs make no such claim; it's marketing-only, see above), **the `skills` repo** (inspected directly — no additional content beyond the doc-navigation skill already installed).
 
+Resolved since (hands-on, across lesson/cookbook development): **VS Code + Deno kernel** — Deno does appear in the kernel picker after `deno jupyter --install`, and `.env` loading via the Deno std dotenv module works inside that kernel.
+
 Still open:
 
 1. **Python SDK** (`typesafe-sdk-python`) — located but not yet read in detail.
-2. **VS Code + Deno kernel hands-on check** — doc page is Python-centric; needs an actual `deno jupyter --install` + kernel-picker test, not doc-only confidence.
-3. **RLCD** — only sourced from the marketing blog in pass 1; not re-verified against a technical docs page in this pass.
-4. **Pricing sanity check** — "$0.042/MTok" input, free output: internally consistent but not independently corroborated; vendor-stated only.
-5. **`docs.typesafe.ai` "Quick Start" and "AI Primer" pages** — listed in the doc index but still not individually fetched; likely useful for sequencing lesson 1.
+2. **RLCD** — only sourced from the marketing blog in pass 1; not re-verified against a technical docs page in this pass.
+3. **Pricing sanity check** — "$0.042/MTok" input, free output: internally consistent but not independently corroborated; vendor-stated only.
+4. **`docs.typesafe.ai` "Quick Start" and "AI Primer" pages** — listed in the doc index but still not individually fetched; likely useful for sequencing lesson 1.
 
 ## Suggested next steps for `/teach` setup
 

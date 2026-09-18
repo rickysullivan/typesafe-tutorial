@@ -27,7 +27,7 @@
 - [Deno Jupyter kernel](https://docs.deno.com/runtime/reference/cli/jupyter/)
   Tooling, not TypeSafe itself, but required to run every lesson. Use for: repo setup / README.
 - [VS Code Jupyter notebooks](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-  Tooling; the fetched page is Python-centric — flagged in research as needing a hands-on check. Use for: repo setup / README.
+  Tooling; the fetched page is Python-centric, but the Deno kernel + VS Code path has since been confirmed hands-on across every lesson and cookbook in this repo. Use for: repo setup / README.
 
 ## Wisdom (Communities)
 
@@ -37,6 +37,5 @@
 ## Gaps
 
 - Python SDK (`typesafe-sdk-python`) not yet read — out of scope for now since this project is Deno/TS only, but flag if scope changes.
-- VS Code + Deno kernel: no hands-on confirmation yet that Deno actually appears in the kernel picker after `deno jupyter --install` — needs a real test, not just doc-trust.
 - RLCD (TypeSafe's training method) and the pricing figures are vendor-blog-only, not corroborated by technical docs — don't present as fact in a lesson.
 - `docs.typesafe.ai` "Quick Start" and "AI Primer" pages haven't been individually fetched yet — worth checking before finalizing later lesson sequencing.
