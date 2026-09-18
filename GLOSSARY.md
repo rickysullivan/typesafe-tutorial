@@ -2,7 +2,7 @@
 
 Canonical vocabulary for this teaching workspace, defined as `docs.typesafe.ai` defines them. Terms are promoted here only once understanding has actually been demonstrated in a lesson — not just introduced.
 
-## Terms
+## Core Concepts
 
 **System One Model**:
 An AI model that evaluates a state and returns typed answers and probabilities directly, rather than generating text you'd have to parse. TypeSafe's flagship System One model is Jev.
@@ -21,3 +21,8 @@ A primitive that rates a state against an ordered set of levels you define. Retu
 
 **Noul**:
 A primitive for a single yes/no judgment. Returns just `noul`, the probability the answer is yes — no separate confidence field. `0.5` means yes and no are equally likely, not medium certainty.
+
+## Patterns
+
+**Speculative fan-out**:
+Sending every question a decision might need in one request — including ones that turn out not to apply — instead of round-tripping as each answer becomes known. Works because extra questions cost a few tokens, not extra latency; ordinary code decides afterward which answers are actually relevant.
