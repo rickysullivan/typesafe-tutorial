@@ -17,11 +17,14 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 
 ## Structure
 
-- `lessons/` — the lessons themselves, numbered in learning order
+- `lessons/core-concepts/` — things to know: System One models, the primitives, confidence
+- `lessons/patterns/` — things to do: composing primitives into fan-out, composite scoring, function calling, citation checks
 - `reference/` — quick-reference material distilled from the lessons (starts once there's enough to compress)
-- `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout
+- `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
 - `research/` — raw research notes behind this project
+
+Lesson numbers are global, not per-folder — `0006` sits in `core-concepts/` next to `0001` and `0002`, skipping straight past the patterns lessons in between. The number is "when this was learned"; the folder is "what kind of thing it is" — two different axes, not a re-count.
 
 ## A note on sourcing
 
