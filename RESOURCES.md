@@ -31,11 +31,11 @@
 
 ## Wisdom (Communities)
 
-_None identified yet — see Gaps._
+- [typesafe-ai on GitHub](https://github.com/typesafe-ai)
+  The org behind the SDKs, the installed skill, and the adapter packages. Use for: issues/discussions on the individual repos, seeing how others are actually integrating, and reporting problems upstream.
 
 ## Gaps
 
-- No community/forum has been identified for TypeSafe AI specifically — it's an early-stage product built around one flagship model (Jev). Worth checking `github.com/typesafe-ai` for Discussions, or a Discord link on typesafe.ai, in a future session.
 - Python SDK (`typesafe-sdk-python`) not yet read — out of scope for now since this project is Deno/TS only, but flag if scope changes.
 - VS Code + Deno kernel: no hands-on confirmation yet that Deno actually appears in the kernel picker after `deno jupyter --install` — needs a real test, not just doc-trust.
 - RLCD (TypeSafe's training method) and the pricing figures are vendor-blog-only, not corroborated by technical docs — don't present as fact in a lesson.
