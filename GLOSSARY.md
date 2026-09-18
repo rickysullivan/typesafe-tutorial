@@ -10,5 +10,14 @@ An AI model that evaluates a state and returns typed answers and probabilities d
 **State**:
 The content — a string, JSON object, or array of text — that a System One model evaluates a question against. One state per request; independent questions can be asked against the same state in parallel.
 
+**Primitive**:
+A typed question you ask a System One model about a state, and the typed answer that comes back. There are three: Choice, Score, and Noul. Each returns a different shape of answer, and the code that consumes it decides which one a judgment actually needs.
+
 **Choice**:
 A primitive that asks a System One model to pick exactly one option from a fixed set. Returns the picked option, the full probability distribution over every option, and a confidence score.
+
+**Score**:
+A primitive that rates a state against an ordered set of levels you define. Returns a position (`score`) — the probability-weighted average of the levels, which can fall between two of them — plus a `legend` mapping level numbers back to their descriptions, the full `probabilities`, and a `confidence`.
+
+**Noul**:
+A primitive for a single yes/no judgment. Returns just `noul`, the probability the answer is yes — no separate confidence field. `0.5` means yes and no are equally likely, not medium certainty.
