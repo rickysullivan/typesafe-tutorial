@@ -26,3 +26,6 @@ A primitive for a single yes/no judgment. Returns just `noul`, the probability t
 
 **Speculative fan-out**:
 Sending every question a decision might need in one request — including ones that turn out not to apply — instead of round-tripping as each answer becomes known. Works because extra questions cost a few tokens, not extra latency; ordinary code decides afterward which answers are actually relevant.
+
+**Composite scoring**:
+Breaking one complex judgment into several independent Score dimensions, normalizing each to 0–1, and combining them with weights that live in code, not the model. Changing the weights re-ranks instantly, without asking anything new.
