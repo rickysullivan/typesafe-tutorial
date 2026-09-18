@@ -36,5 +36,5 @@ Breaking one complex judgment into several independent Score dimensions, normali
 **Function calling** (as a TypeSafe pattern):
 Mapping a natural-language request onto a call to an ordinary function: a Choice for which function, a Choice (or per-member Noul, for a set argument) for each closed-set argument, and an optional companion Noul asking whether an argument was even mentioned at all. The call's overall confidence is the *minimum* across every question actually used, not a product — one weak argument is enough to spoil the whole call.
 
-**Confidence-gated escalation**:
-Dividing confidence into ranges that trigger different behavior — act automatically, proceed with caution (confirm/flag/gather more), or don't act at all. Thresholds scale with the stakes of being wrong, not a single fixed number: a destructive action gets a higher bar than a read-only one, which may get no gate at all.
+**Confidence-gated routing**:
+TypeSafe's own name for dividing confidence into ranges that trigger different behavior — act automatically, proceed with caution (confirm/flag/gather more), or don't act at all. Thresholds scale with the stakes of being wrong, not a single fixed number: a destructive action gets a higher bar than a read-only one, which may get no gate at all.

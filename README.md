@@ -17,14 +17,44 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 
 ## Structure
 
-- `lessons/core-concepts/` — things to know: System One models, the primitives, confidence
-- `lessons/patterns/` — things to do: composing primitives into fan-out, composite scoring, function calling, citation checks
+- `lessons/core-concepts/` — things to know: System One models, the primitives, structure, confidence. Numbered, sequential, meant to be read in order.
+- `lessons/patterns/` — things to do: the four architectural patterns docs.typesafe.ai itself lists under `/patterns` (fan-out, confidence-gated routing, composite scoring, intent routing). Also numbered and sequential, continuing on from `core-concepts/`.
+- `cookbooks/` — one subfolder per docs.typesafe.ai cookbook category (self-consistency, batching, how-to, extraction, classification). Reference material, not a sequence — jump to whichever one you need, tagged Beginner / Intermediate / Advanced.
 - `reference/` — quick-reference material distilled from the lessons (starts once there's enough to compress)
 - `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
 - `research/` — raw research notes behind this project
+- `plans/` — build-out plans for anything not-yet-built (currently: the remaining cookbooks)
 
-Lesson numbers are global, not per-folder — `0006` sits in `core-concepts/` next to `0001` and `0002`, skipping straight past the patterns lessons in between. The number is "when this was learned"; the folder is "what kind of thing it is" — two different axes, not a re-count.
+Lesson numbers (in `lessons/`) are global, not per-folder — they mean "position in the overall sequence," and currently run 1 through 9 with no gaps across both folders. Cookbooks don't get numbers at all: they're named by slug and cross-reference lessons by file path, not by number, since a cookbook has no fixed position in a sequence to be "after."
+
+## Contents
+
+### Lessons
+
+**Core concepts**
+
+1. [What is a System One model?](lessons/core-concepts/0001-what-is-a-system-one-model.ipynb)
+2. [Choice](lessons/core-concepts/0002-choice.ipynb)
+3. [Score](lessons/core-concepts/0003-score.ipynb)
+4. [Noul, and picking the right primitive](lessons/core-concepts/0004-noul-and-picking-the-right-primitive.ipynb)
+5. [Structure](lessons/core-concepts/0005-structure.ipynb)
+
+**Patterns**
+
+6. [Speculative fan-out](lessons/patterns/0006-speculative-fan-out.ipynb)
+7. [Confidence-gated routing](lessons/patterns/0007-confidence-gated-routing.ipynb)
+8. [Composite scoring](lessons/patterns/0008-composite-scoring.ipynb)
+9. [Intent routing](lessons/patterns/0009-intent-routing.ipynb)
+
+### Cookbooks
+
+**How-to**
+
+- [Function calling](cookbooks/how-to/function-calling.ipynb) — Intermediate
+- [Double-checking citations](cookbooks/how-to/citation-checks.ipynb) — Beginner
+
+The remaining 16 cookbooks (Self-consistency, Batching, the rest of How-to, Extraction, Classification) are planned but not yet built — see `plans/cookbooks-buildout.md`.
 
 ## A note on sourcing
 
