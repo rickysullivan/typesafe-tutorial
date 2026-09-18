@@ -29,3 +29,6 @@ Sending every question a decision might need in one request — including ones t
 
 **Composite scoring**:
 Breaking one complex judgment into several independent Score dimensions, normalizing each to 0–1, and combining them with weights that live in code, not the model. Changing the weights re-ranks instantly, without asking anything new.
+
+**Function calling** (as a TypeSafe pattern):
+Mapping a natural-language request onto a call to an ordinary function: a Choice for which function, a Choice (or per-member Noul, for a set argument) for each closed-set argument, and an optional companion Noul asking whether an argument was even mentioned at all. The call's overall confidence is the *minimum* across every question actually used, not a product — one weak argument is enough to spoil the whole call.
