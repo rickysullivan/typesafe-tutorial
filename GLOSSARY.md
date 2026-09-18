@@ -22,6 +22,9 @@ A primitive that rates a state against an ordered set of levels you define. Retu
 **Noul**:
 A primitive for a single yes/no judgment. Returns just `noul`, the probability the answer is yes — no separate confidence field. `0.5` means yes and no are equally likely, not medium certainty.
 
+**Confidence**:
+A single 0–1 number derived from an answer's `probabilities`, summarizing how concentrated that distribution is — peaked means confident, flat means uncertain. Present on Choice and Score, absent on Noul. It measures how clear-cut the answer was, not whether the answer is actually correct; TypeSafe's structured output guarantees an answer's *shape*, never its correctness.
+
 ## Patterns
 
 **Speculative fan-out**:
@@ -32,3 +35,6 @@ Breaking one complex judgment into several independent Score dimensions, normali
 
 **Function calling** (as a TypeSafe pattern):
 Mapping a natural-language request onto a call to an ordinary function: a Choice for which function, a Choice (or per-member Noul, for a set argument) for each closed-set argument, and an optional companion Noul asking whether an argument was even mentioned at all. The call's overall confidence is the *minimum* across every question actually used, not a product — one weak argument is enough to spoil the whole call.
+
+**Confidence-gated escalation**:
+Dividing confidence into ranges that trigger different behavior — act automatically, proceed with caution (confirm/flag/gather more), or don't act at all. Thresholds scale with the stakes of being wrong, not a single fixed number: a destructive action gets a higher bar than a read-only one, which may get no gate at all.
