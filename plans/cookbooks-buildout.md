@@ -1,6 +1,6 @@
 # Cookbooks build-out plan
 
-Status: **Approved** — greenlit to build immediately after this plan was written. Open questions below resolved with the defaults stated, consistent with how lessons 1–9 and the first two cookbooks were already built. Update to `Implemented` once all 18 cookbooks exist.
+Status: **Implemented** — all 18 cookbooks exist under `cookbooks/`, each with an embedded primary source, a self-built runnable example verified with `deno check`, and a `Related` cross-reference cell.
 
 **Resolved:** category order as listed below; one cookbook at a time, same depth as every lesson so far; benchmark-heavy cookbooks get the trim-and-substitute treatment (small self-built example, cite the real reported numbers, don't reproduce the corpus).
 
