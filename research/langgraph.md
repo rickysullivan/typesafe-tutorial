@@ -4,6 +4,8 @@ Compiled from primary sources only (`docs.langchain.com/oss/javascript/langgraph
 
 **Revision note (pass 2):** the first pass covered `overview.md` and `graph-api.md` only and left streaming, persistence, and human-in-the-loop as open questions. This pass re-verified every quote from pass 1 against a fresh fetch of `graph-api.md` (all checked out verbatim) and added six more primary-source pages: `use-graph-api.md` (the how-to companion to `graph-api.md`, with runnable examples for state, conditional branching, `Send`, and `Command`), `streaming.md`, `event-streaming.md`, `persistence.md` + `checkpointers.md`, and `interrupts.md`. One correction from pass 1: the routing-function path map is not "a second argument" loosely speaking — `addConditionalEdges(nodeName, routingFunction, pathMap?)` takes it as an explicit **third** parameter; pass 1's phrasing was directionally right but imprecise. `Send`'s doc example also uses `new Send(...)`, which pass 1's prose dropped. Both are fixed below. Version numbers were re-checked against the npm registry (not just this repo's `node_modules`) — see [Versions](#versions).
 
+**Revision note (pass 3):** Ricky pointed at `thinking-in-langgraph.md` — LangChain's own applied design-methodology page, not just API reference — as a likely-relevant source. It was: its worked example is a support-email agent close to this cookbook's own ticket-triage example, and it directly falsifies one of pass 2's claims. Pass 2 said no page shows an LLM call feeding a routing decision; `thinking-in-langgraph.md` has exactly that (a `classifyIntent` node using structured LLM output to route). The corrected, narrower finding — and the one that actually matters for this cookbook's premise — is in [Routing-function design guidance](#routing-function-design-guidance-the-actual-point-of-researching-this) below: the docs show LLM-fed routing, but never *confidence-gated* routing. Pass 3 also surfaces a real, previously-missed design fork: the docs' own applied guidance recommends `Command({ update, goto })` returned from a node over a separate routing function passed to `addConditionalEdges` — this repo's cookbook uses the latter. See [Applied design guidance](#applied-design-guidance-thinking-in-langgraphmd) for the full writeup.
+
 ## What it is
 
 Source: https://docs.langchain.com/oss/javascript/langgraph/overview.md
@@ -221,9 +223,9 @@ await graph.invoke(new Command({ resume: true }), config);
 
 ## Routing-function design guidance (the actual point of researching this)
 
-Source: `graph-api.md` and `use-graph-api.md`, both re-checked this pass with a targeted grep for anything resembling decision guidance.
+Source: `graph-api.md` and `use-graph-api.md` (pass 2), corrected in pass 3 by `thinking-in-langgraph.md` — see below.
 
-**Confirmed, not just asserted:** neither page says anything about how a routing function passed to `addConditionalEdges` should *decide*. `graph-api.md` describes the mechanism only ("the `routingFunction` accepts the current `state` of the graph and returns a value"). `use-graph-api.md`'s own worked conditional-branching example is the closest thing to guidance the docs offer, and it's a placeholder comment, not a recommendation:
+`graph-api.md` describes `addConditionalEdges`'s routing function mechanically only ("the `routingFunction` accepts the current `state` of the graph and returns a value"), and `use-graph-api.md`'s own worked example is a placeholder comment, not a recommendation:
 
 ```typescript
 const conditionalEdge: ConditionalEdgeRouter<{ InputSchema: typeof State; Nodes: "b" | "c" }> = (state) => {
@@ -233,9 +235,40 @@ const conditionalEdge: ConditionalEdgeRouter<{ InputSchema: typeof State; Nodes:
 };
 ```
 
-Every other example in both pages routes on an already-known field set earlier by a plain, deterministic node (`state.which`, a boolean, `Math.random() > 0.5`) — never on something extracted from unstructured input. There is no example anywhere in these two pages of an LLM call feeding a routing decision, structured or otherwise.
+**Correction from pass 3:** pass 2 claimed "there is no example anywhere in these two pages of an LLM call feeding a routing decision." That was true of `graph-api.md`/`use-graph-api.md` specifically, but false of the docs as a whole — `thinking-in-langgraph.md` (fetched in pass 3, see next section) has exactly that: a `classifyIntent` node that calls an LLM with structured output and routes on the result. The corrected, narrower claim: LangGraph's docs **do** show LLM-fed routing, but **never confidence-gated** routing — every routing decision in every page, LLM-backed or not, branches on a category/boolean field alone. `classifyIntent`'s own schema has no confidence field, and its escalation rule is a hardcoded `classification.intent === "billing" || classification.urgency === "critical"` check, not a threshold on how sure the model was. That's the actual, narrower gap this repo's cookbook fills — not "no LLM-based routing example exists," but "no confidence-gated one does."
 
-In practice (and this is the gap the new cookbook fills, not a documented LangGraph recommendation — flagging clearly since it's *my* inference, not a primary-source claim), the common approach is an LLM call inside or before the routing function, with its free-text output parsed by hand into one of the fixed node names. That's exactly the failure mode `docs.typesafe.ai`'s own design guidance warns about (see `research/typesafe-ai.md`) — parsing unstructured text into a decision your code then branches on. A TypeSafe `Choice` question returns one of a **closed set** of options directly, with a `confidence` score, so the routing function becomes a direct read of a typed field rather than a parse step — and `confidence` composes naturally with this repo's own confidence-gated routing pattern (lesson 7) to add a "don't act — go to human review" branch alongside the model's chosen category.
+A TypeSafe `Choice` question returns one of a **closed set** of options directly, with a `confidence` score, so the routing function (or a `Command`-returning node, see below) can read a typed field and a calibrated certainty measure in one call — no separate `urgency` field needs to be hand-designed and hand-populated by the model just to know when to escalate. `confidence` composes naturally with this repo's own confidence-gated routing pattern (lesson 7) to add a "don't act — go to human review" branch alongside the model's chosen category.
+
+## Applied design guidance (`thinking-in-langgraph.md`)
+
+Source: https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph.md (fetched pass 3, on Ricky's pointer — a JS variant of this page exists and returns real content, confirmed via `curl` before use)
+
+This is LangChain's own worked methodology for *designing* a LangGraph agent, not just its API reference — and its running example is a customer support **email** agent (classify → search/track → draft → human review → send), close enough to this cookbook's support-ticket example that it's worth citing directly rather than just noting in passing.
+
+**Five-step method, as stated:** (1) map the workflow into discrete nodes and sketch the edges between them; (2) classify each node as an **LLM step** (understand/analyze/generate/decide), a **data step** (retrieve from external sources), an **action step** (perform an external effect), or a **user-input step** (needs a human); (3) design `State`; (4) build nodes as functions; (5) wire the graph with the minimal edges the nodes' own routing doesn't already handle.
+
+**"Keep state raw, format prompts on-demand"** — quoted directly as "a key principle." State should store raw data (the classification object, raw search results, the raw draft text), never pre-formatted prompt strings. Reasons given: different nodes can format the same data differently, prompt templates can change without touching the state schema, debugging shows exactly what data a node received, and the agent can evolve without breaking existing state. This cookbook already follows this (state stores `category`/`confidence` as plain fields, no formatted prompt text) without having read this page first — worth noting in the cookbook's own prose as a confirmed-by-the-docs design choice, not a coincidence.
+
+**Error-handling taxonomy** (a table, quoted structure): transient errors (network/rate-limit) → automatic retry policy (`{ retryPolicy: { maxAttempts, initialInterval } }` on `addNode`); LLM-recoverable errors (tool/parse failures) → store the error in state and loop back so the model can see and correct it; user-fixable errors (missing info) → pause with `interrupt()`; errors recoverable after retries exhaust → a declarative compensation/`error_handler` branch; unexpected errors → let them bubble up undebugged rather than swallowing them. Not exercised in this cookbook (its nodes don't call anything that can fail), but directly relevant if the cookbook's stub leaf nodes ever become real handlers.
+
+**Routing lives inside nodes, via `Command`, not in separate conditional-edge functions — this is the actual design choice pass 2 missed.** The page's own worked graph wires only three static edges (`START → readEmail → classifyIntent`, `sendReply → END`); every other transition is a `Command({ update, goto })` returned directly from the node that made the decision, e.g.:
+
+```typescript
+const classifyIntent: GraphNode<typeof EmailAgentState> = async (state, config) => {
+  const classification = await structuredLlm.invoke(classificationPrompt);
+  let nextNode: "searchDocumentation" | "humanReview" | "draftResponse" | "bugTracking";
+  if (classification.intent === "billing" || classification.urgency === "critical") {
+    nextNode = "humanReview";
+  } else if (classification.intent === "question" || classification.intent === "feature") {
+    nextNode = "searchDocumentation";
+  } // ...
+  return new Command({ update: { classification }, goto: nextNode });
+};
+```
+
+Quoted justification: "The graph structure is minimal because routing happens inside nodes through `Command` objects. Each node declares where it can go, making the flow explicit and traceable." This repo's cookbook instead uses a **separate** `route()` function passed to `addConditionalEdges`, keeping the TypeSafe call and the routing decision in two different places. Both are valid, documented LangGraph patterns — pass 3 doesn't have a primary-source basis for calling one more "correct" than the other, but it's a real design fork worth surfacing rather than silently picking one: `Command` keeps a node's own routing logic next to the code that produced the data it routes on (this doc's stated reason), while a separate routing function keeps "what does TypeSafe say" and "what do we do about it" visibly separate, which is closer to this repo's own recurring "code decides, model decides" split (`research/typesafe-ai.md`).
+
+**Node-granularity trade-offs** (from the page's own "Advanced considerations," explicitly marked as optional reading): smaller, single-purpose nodes checkpoint more often (less re-executed work on resume), isolate external-service failures from LLM calls, give intermediate visibility for debugging ("you can see exactly when and why the agent routes to human review"), and are easier to test/reuse independently — the stated reason `classifyIntent` is split out from `readEmail` even though nothing stops you combining them. Directly supports this cookbook's own choice to keep `classify` as its own node rather than folding the TypeSafe call into a larger node.
 
 ## Versions
 
