@@ -1,6 +1,6 @@
 # LangGraph interrupts cookbook
 
-Status: **Proposed**
+Status: **Implemented** — `cookbooks/integrations/langgraph-interrupts.ipynb` built, verified with `deno check`, run for real against the live API (both the auto-routed and the paused/resumed path), and cross-referenced from README.
 
 ## Goal
 

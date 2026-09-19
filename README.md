@@ -85,6 +85,7 @@ All 18 core cookbooks built — see `plans/cookbooks-buildout.md` for how. `inte
 **Integrations**
 
 - [LangGraph + TypeSafe](cookbooks/integrations/langgraph.ipynb) — Intermediate
+- [LangGraph interrupts + TypeSafe](cookbooks/integrations/langgraph-interrupts.ipynb) — Intermediate
 
 ## A note on sourcing
 
