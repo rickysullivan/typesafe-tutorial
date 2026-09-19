@@ -1,6 +1,6 @@
 # LangGraph + TypeSafe cookbook
 
-Status: **Proposed**
+Status: **Approved** — single cookbook, per Ricky's confirmation.
 
 ## Goal
 
