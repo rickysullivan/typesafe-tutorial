@@ -13,8 +13,6 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 4. Open this repo in [VS Code Insiders](https://code.visualstudio.com/insiders/) with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) installed.
 5. Open a lesson under `lessons/` and pick **Deno** from the kernel picker (top right of the notebook).
 
-> Note: the Deno-kernel-in-VS-Code path hasn't been hands-on verified yet in this project — if the kernel picker doesn't show Deno after step 2, that's a known open item, not something wrong with your setup specifically.
-
 ## Structure
 
 - `lessons/core-concepts/` — things to know: System One models, the primitives, structure, confidence. Numbered, sequential, meant to be read in order.
@@ -49,12 +47,40 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 
 ### Cookbooks
 
+All 18 built — see `plans/cookbooks-buildout.md` for how.
+
+**Self-consistency**
+
+- [Self-consistency: nouls](cookbooks/self-consistency/nouls.ipynb) — Beginner
+- [Self-consistency: choices](cookbooks/self-consistency/choices.ipynb) — Beginner
+
+**Batching**
+
+- [Parallel questions](cookbooks/batching/parallel-questions.ipynb) — Beginner
+
 **How-to**
 
+- [Re-ranking](cookbooks/how-to/re-ranking.ipynb) — Beginner
+- [Line-by-line search](cookbooks/how-to/line-by-line-search.ipynb) — Beginner
+- [Structure recovery](cookbooks/how-to/structure-recovery.ipynb) — Beginner
 - [Function calling](cookbooks/how-to/function-calling.ipynb) — Intermediate
+- [Skill suggestion](cookbooks/how-to/skill-suggestion.ipynb) — Intermediate
+- [Knowledge graph entity alignment](cookbooks/how-to/knowledge-graph-entity-alignment.ipynb) — Beginner
+- [Classifying RAG passages](cookbooks/how-to/classifying-rag-passages.ipynb) — Intermediate
 - [Double-checking citations](cookbooks/how-to/citation-checks.ipynb) — Beginner
+- [Guardrails for LLMs](cookbooks/how-to/guardrails-for-llms.ipynb) — Intermediate
 
-The remaining 16 cookbooks (Self-consistency, Batching, the rest of How-to, Extraction, Classification) are planned but not yet built — see `plans/cookbooks-buildout.md`.
+**Extraction**
+
+- [SDE cascade](cookbooks/extraction/sde-cascade.ipynb) — Intermediate
+- [Date extraction](cookbooks/extraction/date-extraction.ipynb) — Beginner
+- [Pre-parsed value extraction](cookbooks/extraction/pre-parsed-value-extraction.ipynb) — Beginner
+
+**Classification**
+
+- [Hierarchical classification](cookbooks/classification/hierarchical-classification.ipynb) — Intermediate
+- [Autoresearch feature discovery](cookbooks/classification/autoresearch-feature-discovery.ipynb) — Advanced
+- [Classification using confidence](cookbooks/classification/classification-using-confidence.ipynb) — Beginner
 
 ## A note on sourcing
 
