@@ -17,7 +17,7 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 
 - `lessons/core-concepts/` — things to know: System One models, the primitives, structure, confidence. Numbered, sequential, meant to be read in order.
 - `lessons/patterns/` — things to do: the four architectural patterns docs.typesafe.ai itself lists under `/patterns` (fan-out, confidence-gated routing, composite scoring, intent routing). Also numbered and sequential, continuing on from `core-concepts/`.
-- `cookbooks/` — one subfolder per docs.typesafe.ai cookbook category (self-consistency, batching, how-to, extraction, classification). Reference material, not a sequence — jump to whichever one you need, tagged Beginner / Intermediate / Advanced.
+- `cookbooks/` — one subfolder per docs.typesafe.ai cookbook category (self-consistency, batching, how-to, extraction, classification), plus `integrations/` for cookbooks original to this repo pairing TypeSafe with an external framework. Reference material, not a sequence — jump to whichever one you need, tagged Beginner / Intermediate / Advanced.
 - `reference/` — quick-reference material distilled from the lessons (starts once there's enough to compress)
 - `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
@@ -47,7 +47,7 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 
 ### Cookbooks
 
-All 18 built — see `plans/cookbooks-buildout.md` for how.
+All 18 core cookbooks built — see `plans/cookbooks-buildout.md` for how. `integrations/` is original content, not from docs.typesafe.ai — see `plans/langgraph-cookbook.md`.
 
 **Self-consistency**
 
@@ -82,6 +82,10 @@ All 18 built — see `plans/cookbooks-buildout.md` for how.
 - [Autoresearch feature discovery](cookbooks/classification/autoresearch-feature-discovery.ipynb) — Advanced
 - [Classification using confidence](cookbooks/classification/classification-using-confidence.ipynb) — Beginner
 
+**Integrations**
+
+- [LangGraph + TypeSafe](cookbooks/integrations/langgraph.ipynb) — Intermediate
+
 ## A note on sourcing
 
-Every technical claim in these lessons traces back to [docs.typesafe.ai](https://docs.typesafe.ai/) or TypeSafe's own installed Claude Code skill — not the marketing site. Where the two disagree (see `research/typesafe-ai.md`), the lessons say so explicitly.
+Every technical claim in these lessons traces back to [docs.typesafe.ai](https://docs.typesafe.ai/) or TypeSafe's own installed Claude Code skill — not the marketing site. Where the two disagree (see `research/typesafe-ai.md`), the lessons say so explicitly. `cookbooks/integrations/` cites the external framework's own docs instead (see `research/langgraph.md`), since there's no TypeSafe page to trace back to.

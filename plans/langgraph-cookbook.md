@@ -1,6 +1,6 @@
 # LangGraph + TypeSafe cookbook
 
-Status: **Approved** — single cookbook, per Ricky's confirmation.
+Status: **Implemented** — `cookbooks/integrations/langgraph.ipynb` built, verified with `deno check`, and cross-referenced from README. Research grounding in `research/langgraph.md`.
 
 ## Goal
 
