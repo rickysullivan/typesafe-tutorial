@@ -2,8 +2,7 @@
 
 Preferences and working notes for this teaching workspace, not covered by the other files.
 
-- **Lessons are Jupyter notebooks (`.ipynb`), not HTML** — a deliberate deviation from this skill's default. Delivery is the Deno kernel (`deno jupyter --install`), opened in VS Code Insiders (`code-insiders <path>` — not `insiders`, that's not the actual CLI name). Rationale: the mission wants markdown narrative interleaved with runnable code and persisted output, which `.ipynb` does natively; Zed's REPL doesn't fit (see below).
-- **Zed is out.** Zed's REPL runs `.ts` files with `// %%` cell markers, not `.ipynb` files — doesn't match the notebook format this project needs. Dropped from the delivery story entirely, not just deprioritized.
+- **Lessons are Jupyter notebooks (`.ipynb`), not HTML** — a deliberate deviation from this skill's default. Delivery is the Deno kernel (`deno jupyter --install`), opened in VS Code Insiders (`code-insiders <path>` — not `insiders`, that's not the actual CLI name). Rationale: the mission wants markdown narrative interleaved with runnable code and persisted output, which `.ipynb` does natively.
 - **`learning-records/` is gitignored.** Ricky wants his in-progress mistakes/corrections kept local and private, not published in the clone-and-follow-along repo.
 - **Repo is triple-purpose**: Ricky's own learning workspace, a public clone-and-follow-along resource, and the source material for a conference talk. Every lesson needs to stand alone for a stranger with no live help — not just make sense to Ricky.
 - **Commit convention: Conventional Commits**, one logical unit of work per commit (see `AGENTS.md`).

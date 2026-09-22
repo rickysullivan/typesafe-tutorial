@@ -2,7 +2,7 @@
 
 Compiled from primary sources only (vendor site, vendor technical docs at docs.typesafe.ai, the officially-installed `typesafe:typesafe-ai` Claude Code skill, official GitHub org). No secondary write-ups or parametric knowledge used except where explicitly flagged.
 
-**Revision note (pass 2):** the first pass relied on the marketing site and a generic docs crawl, and flagged several open questions. This pass used the officially-installed `typesafe:typesafe-ai` skill (`typesafe-ai/skills` on GitHub, MIT licensed, published by TypeSafe AI) as the authoritative map of which `docs.typesafe.ai` pages to read, and fetched those pages directly. This resolved the "Noul" spelling question and surfaced a real contradiction between the marketing site and the technical docs on reliability claims — see "Marketing claims vs. technical docs" below. The Deno/Zed/VS Code tooling section from pass 1 is carried over unchanged; it wasn't in scope for this pass.
+**Revision note (pass 2):** the first pass relied on the marketing site and a generic docs crawl, and flagged several open questions. This pass used the officially-installed `typesafe:typesafe-ai` skill (`typesafe-ai/skills` on GitHub, MIT licensed, published by TypeSafe AI) as the authoritative map of which `docs.typesafe.ai` pages to read, and fetched those pages directly. This resolved the "Noul" spelling question and surfaced a real contradiction between the marketing site and the technical docs on reliability claims — see "Marketing claims vs. technical docs" below. The Deno/VS Code tooling section from pass 1 is carried over unchanged; it wasn't in scope for this pass.
 
 ## What it is
 
@@ -133,19 +133,6 @@ Source: https://docs.deno.com/runtime/reference/cli/jupyter/
 - Supports JavaScript and TypeScript in `.ipynb` notebooks.
 - Full Deno + Web APIs available in-notebook, including NPM imports (so `@typesafe-ai/sdk` should import directly), rich output (HTML/Markdown/SVG/images), `prompt`/`confirm`, and `Deno.jupyter.broadcast` for live output.
 - **Caveat, stated as temporary**: all notebook code currently runs with `--allow-all` — no permission sandboxing yet. Worth a callout in lesson 1 if the demo touches network/env/fs, since a cloned-repo learner should know their notebook has full permissions by default.
-
-### Zed REPL
-
-Source: https://zed.dev/docs/repl
-
-- Same install step: `deno jupyter --install`.
-- Zed's REPL is line/selection/block-oriented, not strictly `.ipynb`-file-oriented: open a `.ts` file, run `repl: run` (default `ctrl-shift-enter` on macOS) on a line/selection/block.
-- Optional `// %%` comment separators let you structure a plain `.ts` file into notebook-style cells that run independently — this may be a better authoring format than `.ipynb` if Zed is the primary editor, since it's a plain TypeScript file.
-- Deno must be set as the default TypeScript kernel explicitly in Zed settings:
-  ```json
-  { "jupyter": { "kernel_selections": { "typescript": "deno" } } }
-  ```
-- Debug commands: `repl: sessions` (list available kernels), `repl: refresh kernelspecs` (reload after installing a new kernel).
 
 ### VS Code
 
