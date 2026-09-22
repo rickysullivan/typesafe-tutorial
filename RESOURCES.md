@@ -18,8 +18,8 @@
   Request/response shape, status codes. Use for: understanding what the SDK wraps.
 - [JavaScript/TypeScript SDK](https://docs.typesafe.ai/sdk/javascript.md)
   The SDK every lesson's code actually uses. Use for: every runnable cell.
-- [Fan-out pattern](https://docs.typesafe.ai/patterns/fan-out.md), [Composite scoring pattern](https://docs.typesafe.ai/patterns/composite-scoring.md), [Function calling cookbook](https://docs.typesafe.ai/cookbooks/function_calling.md)
-  Worked composition patterns. Use for: the use-case lessons at the end of the track.
+- [Fan-out pattern](https://docs.typesafe.ai/patterns/fan-out.md), [Composite scoring pattern](https://docs.typesafe.ai/patterns/composite-scoring.md), [Intent routing pattern](https://docs.typesafe.ai/patterns/intent-routing.md), [Function calling cookbook](https://docs.typesafe.ai/cookbooks/function_calling.md)
+  Worked composition patterns — the four `/patterns` pages plus one cookbook. Use for: the use-case lessons at the end of the track (lesson 9's primary source is the intent routing page directly).
 - Installed Claude Code skill: `typesafe:typesafe-ai` (`~/.claude/plugins/marketplaces/typesafe-ai/skills/typesafe-ai/SKILL.md`)
   TypeSafe's own official docs-navigation and design guidance, MIT licensed. Use for: re-orienting mid-session; citable directly as a primary source.
 - [`research/typesafe-ai.md`](research/typesafe-ai.md) (this repo)
@@ -28,6 +28,25 @@
   Tooling, not TypeSafe itself, but required to run every lesson. Use for: repo setup / README.
 - [VS Code Jupyter notebooks](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
   Tooling; the fetched page is Python-centric, but the Deno kernel + VS Code path has since been confirmed hands-on across every lesson and cookbook in this repo. Use for: repo setup / README.
+
+## Integrations (LangGraph)
+
+`cookbooks/integrations/` pairs TypeSafe with LangGraph — original content, not from docs.typesafe.ai, so it gets its own sources here rather than being folded into the TypeSafe list above.
+
+- [LangGraph overview](https://docs.langchain.com/oss/javascript/langgraph/overview)
+  What LangGraph is (an orchestration runtime, not a prompt/architecture abstraction) and its core benefits. Use for: the "why pair this with TypeSafe" framing.
+- [Graph API overview](https://docs.langchain.com/oss/javascript/langgraph/graph-api)
+  Core vocabulary: `StateGraph`, state schema + reducers, nodes, edges (normal/conditional), `Send`, `Command`. Use for: both `integrations/` cookbooks' primary-source cells.
+- [Thinking in LangGraph](https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph)
+  Applied design guidance, not just API reference — a worked support-email agent example close to this repo's own ticket-triage cookbooks. Use for: the "keep state raw," "one node per concern," and `Command`-over-conditional-edges design choices in `langgraph.ipynb`.
+- [Streaming](https://docs.langchain.com/oss/javascript/langgraph/streaming), [Event streaming](https://docs.langchain.com/oss/javascript/langgraph/event-streaming)
+  `stream()`/`streamMode` vs. the newer `streamEvents` typed-projection API. Use for: not yet used in a cookbook — flagged as an open item if a future one needs incremental output.
+- [Persistence](https://docs.langchain.com/oss/javascript/langgraph/persistence), [Checkpointers](https://docs.langchain.com/oss/javascript/langgraph/checkpointers)
+  Checkpointer vs. store, `thread_id` mechanics, `MemorySaver`, durability modes. Use for: `langgraph-interrupts.ipynb`'s checkpointer setup.
+- [Interrupts](https://docs.langchain.com/oss/javascript/langgraph/interrupts)
+  `interrupt()`/resume mechanics and the four rules (no try/catch, no reordering, JSON-serializable only, idempotent side effects before the call). Use for: `langgraph-interrupts.ipynb`, primary source directly.
+- [`research/langgraph.md`](research/langgraph.md) (this repo)
+  Three research passes — the LangGraph equivalent of `research/typesafe-ai.md` above, including two self-corrections along the way (an imprecise `addConditionalEdges` claim, and a false "no LLM-fed routing example exists" claim). Use for: the source of truth for anything in `cookbooks/integrations/` — check here before re-fetching docs.
 
 ## Wisdom (Communities)
 
@@ -39,3 +58,4 @@
 - Python SDK (`typesafe-sdk-python`) not yet read — out of scope for now since this project is Deno/TS only, but flag if scope changes.
 - RLCD (TypeSafe's training method) and the pricing figures are vendor-blog-only, not corroborated by technical docs — don't present as fact in a lesson.
 - `docs.typesafe.ai` "Quick Start" and "AI Primer" pages haven't been individually fetched yet — worth checking before finalizing later lesson sequencing.
+- LangGraph: Stores, Subgraphs, the Functional API, and Time travel are named in `research/langgraph.md` but not independently fetched — only relevant if a future `integrations/` cookbook needs them.
