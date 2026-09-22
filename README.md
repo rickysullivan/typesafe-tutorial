@@ -87,3 +87,7 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 ## A note on sourcing
 
 Every technical claim in these lessons traces back to [docs.typesafe.ai](https://docs.typesafe.ai/) or TypeSafe's own installed Claude Code skill — not the marketing site. Where the two disagree (see `research/typesafe-ai.md`), the lessons say so explicitly. `cookbooks/integrations/` cites the external framework's own docs instead (see `research/langgraph.md`), since there's no TypeSafe page to trace back to.
+
+## License
+
+[MIT](LICENSE)
