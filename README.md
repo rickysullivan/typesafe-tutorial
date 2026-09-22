@@ -22,7 +22,7 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 - `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
 - `research/` — raw research notes behind this project
-- `plans/` — build-out plans for anything not-yet-built (currently: the remaining cookbooks)
+- `plans/` — build-out plans, written before implementing anything non-trivial; pruned once their work has landed and the plan itself has no further reference value
 
 Lesson numbers (in `lessons/`) are global, not per-folder — they mean "position in the overall sequence," and currently run 1 through 9 with no gaps across both folders. Cookbooks don't get numbers at all: they're named by slug and cross-reference lessons by file path, not by number, since a cookbook has no fixed position in a sequence to be "after."
 
@@ -47,7 +47,7 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 
 ### Cookbooks
 
-All 18 core cookbooks built — see `plans/cookbooks-buildout.md` for how. `integrations/` is original content, not from docs.typesafe.ai — see `plans/langgraph-cookbook.md`.
+All 18 core cookbooks built, plus `integrations/` for original content not from docs.typesafe.ai (see `plans/` for anything still in progress).
 
 **Self-consistency**
 
