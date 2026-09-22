@@ -47,8 +47,6 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 
 ### Cookbooks
 
-All 18 core cookbooks built, plus `integrations/` for original content not from docs.typesafe.ai (see `plans/` for anything still in progress).
-
 **Self-consistency**
 
 - [Self-consistency: nouls](cookbooks/self-consistency/nouls.ipynb) — Beginner
