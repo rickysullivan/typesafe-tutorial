@@ -114,7 +114,7 @@ Structured output does genuinely guarantee something narrower than the marketing
 
 ## Official SDKs & repos
 
-Source: https://github.com/typesafe-ai, https://github.com/typesafe-ai/typesafe-sdk-js, the installed `typesafe:typesafe-ai` plugin (`/Users/rickys/.claude/plugins/marketplaces/typesafe-ai/`)
+Source: https://github.com/typesafe-ai, https://github.com/typesafe-ai/typesafe-sdk-js, the installed `typesafe:typesafe-ai` plugin (`~/.claude/plugins/marketplaces/typesafe-ai/`)
 
 - `typesafe-sdk-js` — official TS/JS SDK, detailed above.
 - `typesafe-sdk-python` — official Python SDK. *Still not inspected — open item, see below.*
