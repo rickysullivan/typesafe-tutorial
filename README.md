@@ -22,6 +22,7 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 - `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
 - `research/` — raw research notes behind this project
+- `CONTRIBUTING.md` — conventions for adding or changing a lesson or cookbook
 
 Lesson numbers (in `lessons/`) are global, not per-folder — they mean "position in the overall sequence," and currently run 1 through 9 with no gaps across both folders. Cookbooks don't get numbers at all: they're named by slug and cross-reference lessons by file path, not by number, since a cookbook has no fixed position in a sequence to be "after."
 
