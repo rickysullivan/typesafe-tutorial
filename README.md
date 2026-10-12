@@ -18,7 +18,6 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 - `lessons/core-concepts/` — things to know: System One models, the primitives, structure, confidence. Numbered, sequential, meant to be read in order.
 - `lessons/patterns/` — things to do: the four architectural patterns docs.typesafe.ai itself lists under `/patterns` (fan-out, confidence-gated routing, composite scoring, intent routing). Also numbered and sequential, continuing on from `core-concepts/`.
 - `cookbooks/` — one subfolder per docs.typesafe.ai cookbook category (self-consistency, batching, how-to, extraction, classification), plus `integrations/` for cookbooks original to this repo pairing TypeSafe with an external framework. Reference material, not a sequence — jump to whichever one you need, tagged Beginner / Intermediate / Advanced.
-- `reference/` — quick-reference material distilled from the lessons (starts once there's enough to compress)
 - `GLOSSARY.md` — canonical TypeSafe vocabulary used throughout, split the same way (Core Concepts / Patterns)
 - `RESOURCES.md` — primary sources everything here is grounded in
 - `research/` — raw research notes behind this project
