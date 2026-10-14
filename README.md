@@ -27,7 +27,7 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 - `research/` — raw research notes behind this project
 - `CONTRIBUTING.md` — conventions for adding or changing a lesson or cookbook
 
-Lesson numbers (in `lessons/`) are global, not per-folder — they mean "position in the overall sequence," and currently run 1 through 9 with no gaps across both folders. Cookbooks don't get numbers at all: they're named by slug and cross-reference lessons by file path, not by number, since a cookbook has no fixed position in a sequence to be "after."
+Lesson numbers (in `lessons/`) are global, not per-folder — they mean "position in the overall sequence," and currently run 1 through 10 with no gaps across both folders. Cookbooks don't get numbers at all: they're named by slug and cross-reference lessons by file path, not by number, since a cookbook has no fixed position in a sequence to be "after."
 
 ## Contents
 
@@ -40,6 +40,10 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 3. [Score](lessons/core-concepts/0003-score.ipynb)
 4. [Noul, and picking the right primitive](lessons/core-concepts/0004-noul-and-picking-the-right-primitive.ipynb)
 5. [Structure](lessons/core-concepts/0005-structure.ipynb)
+
+*Draft, pre-release (needs the Danger Zone header):*
+
+10. [Images](lessons/core-concepts/0010-images.ipynb)
 
 **Patterns**
 
