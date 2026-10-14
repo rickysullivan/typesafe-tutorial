@@ -1,9 +1,15 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/encoding@1": "1.0.11",
     "npm:@langchain/langgraph@*": "1.4.15_@langchain+core@1.2.11_zod@4.6.5",
     "npm:@typesafe-ai/sdk@*": "0.6.0",
     "npm:zod@*": "4.6.5"
+  },
+  "jsr": {
+    "@std/encoding@1.0.11": {
+      "integrity": "e7cef2f0b3153bccc17431e7c864a1de03a4b6d9647389c43e08aaa775d37385"
+    }
   },
   "npm": {
     "@cfworker/json-schema@4.1.1": {
