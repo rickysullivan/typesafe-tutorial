@@ -10,6 +10,8 @@
   The five-step design method: code-first, decompose state, atomic questions, parallel composition, compose in code. Use for: the "how do I design a question" lesson.
 - [Primitives overview](https://docs.typesafe.ai/primitives.md), [Choice](https://docs.typesafe.ai/primitives/choice.md), [Score](https://docs.typesafe.ai/primitives/score.md), [Noul](https://docs.typesafe.ai/primitives/noul.md)
   Exact field shapes and semantics for the three question types. Use for: every primitive-specific lesson.
+- [Images](https://docs.typesafe.ai/images.md), [Box](https://docs.typesafe.ai/primitives/box.md)
+  Sending images in `state`, `instructions` and `criteria` through an `assets` map and placeholders, plus multipart rules, limits and errors. Box returns where something is in an image. Both are "Dreamer-ready" and need the `TypeSafe-Danger-Zone-Images: true` header. Not yet in `llms.txt` as of 2026-10-15. Use for: lesson 10.
 - [Confidence](https://docs.typesafe.ai/confidence.md)
   What confidence actually measures (distribution shape, not correctness) and threshold guidance. Use for: the confidence/escalation lesson.
 - [Use-case map](https://docs.typesafe.ai/concepts/use-case-map.md)

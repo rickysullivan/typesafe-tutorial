@@ -41,7 +41,7 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 4. [Noul, and picking the right primitive](lessons/core-concepts/0004-noul-and-picking-the-right-primitive.ipynb)
 5. [Structure](lessons/core-concepts/0005-structure.ipynb)
 
-*Draft, pre-release (needs the Danger Zone header):*
+*Dreamer-ready (needs the Danger Zone header):*
 
 10. [Images](lessons/core-concepts/0010-images.ipynb)
 

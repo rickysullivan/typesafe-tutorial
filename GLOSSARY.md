@@ -8,7 +8,7 @@ Canonical vocabulary for this teaching workspace, defined as `docs.typesafe.ai` 
 An AI model that evaluates a state and returns typed answers and probabilities directly, rather than generating text you'd have to parse. TypeSafe's flagship System One model is Jev.
 
 **State**:
-The content — a string, JSON object, or array of text — that a System One model evaluates a question against. One state per request; independent questions can be asked against the same state in parallel.
+The content — a string, JSON object, or array of text — that a System One model evaluates a question against. One state per request; independent questions can be asked against the same state in parallel. With the Danger Zone images header, a state can also hold images, through placeholders.
 
 **Primitive**:
 A typed question you ask a System One model about a state, and the typed answer that comes back. There are three: Choice, Score, and Noul. Each returns a different shape of answer, and the code that consumes it decides which one a judgment actually needs.
@@ -24,6 +24,15 @@ A primitive for a single yes/no judgment. Returns just `noul`, the probability t
 
 **Confidence**:
 A single 0–1 number derived from an answer's `probabilities`, summarizing how concentrated that distribution is — peaked means confident, flat means uncertain. Present on Choice and Score, absent on Noul. It measures how clear-cut the answer was, not whether the answer is actually correct; TypeSafe's structured output guarantees an answer's *shape*, never its correctness.
+
+**Asset**:
+An image listed in a request's top-level `assets` map, under a placeholder key. Sent once, either as a multipart file part (`part`) or as `data_base64` with a `format`. Every asset must be referenced somewhere in the request. Dreamer-ready: needs the `TypeSafe-Danger-Zone-Images: true` header.
+
+**Placeholder**:
+The string key of an asset. Wherever it appears in the `state`, a question's `instructions` or its `criteria`, the model receives the image in its place. Each use adds the image again, so an image several questions share belongs in the state, once. A new UUID per image per request is the safest choice.
+
+**Box**:
+A question type that answers *where* something is in an image: the four edges (`top`, `bottom`, `left`, `right`) of the smallest rectangle around the target, as fractions of the image's height and width, plus a `confidence`. Takes `instructions` and no `criteria`. Needs Jev 1.14 (`jev-preview`). Dreamer-ready.
 
 ## Patterns
 
