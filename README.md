@@ -10,6 +10,10 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
    ```
    TYPESAFE_API_KEY=your-key-here
    ```
+   Optional: to send extra headers with every request, for example to turn on TypeSafe's pre-release "Danger Zone" features, add `TYPESAFE_HEADERS` as a single-quoted JSON object of string values:
+   ```
+   TYPESAFE_HEADERS='{"TypeSafe-Danger-Zone-Images":"true"}'
+   ```
 4. Open this repo in [VS Code Insiders](https://code.visualstudio.com/insiders/) with the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) installed.
 5. Open a lesson under `lessons/` and pick **Deno** from the kernel picker (top right of the notebook).
 

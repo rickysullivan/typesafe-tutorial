@@ -10,6 +10,8 @@ Install the kernel with `deno jupyter --install`. Open notebooks in VS Code with
 
 Every notebook imports the shared client from `assets/typesafe-client.ts`. Adjust the relative path to match the notebook's depth, for example `../../assets/typesafe-client.ts` from `lessons/core-concepts/`.
 
+The shared client sends any headers set in `TYPESAFE_HEADERS` (see the README) with every request. To send a header on one request only, pass it per call instead: `client.systemOne({ ... }, { headers: { "Header-Name": "value" } })`.
+
 ## Where things go
 
 ### Lessons
