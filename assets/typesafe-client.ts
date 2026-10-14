@@ -11,4 +11,27 @@ if (!apiKey) {
   );
 }
 
-export const client = new TypeSafeClient({ apiKey });
+// Optional extra headers sent with every request, as a JSON object of strings.
+function parseHeaders(raw: string | undefined): Record<string, string> {
+  if (!raw?.trim()) return {};
+  const invalid = new Error(
+    `TYPESAFE_HEADERS must be a JSON object of string values, for example '{"Header-Name":"value"}'. See README.md.`,
+  );
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw invalid;
+  }
+  if (
+    typeof parsed !== "object" || parsed === null || Array.isArray(parsed) ||
+    !Object.values(parsed).every((value) => typeof value === "string")
+  ) {
+    throw invalid;
+  }
+  return parsed as Record<string, string>;
+}
+
+const defaultHeaders = parseHeaders(Deno.env.get("TYPESAFE_HEADERS"));
+
+export const client = new TypeSafeClient({ apiKey, defaultHeaders });
