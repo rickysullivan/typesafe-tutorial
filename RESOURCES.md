@@ -20,6 +20,8 @@
   Request/response shape, status codes. Use for: understanding what the SDK wraps.
 - [JavaScript/TypeScript SDK](https://docs.typesafe.ai/sdk/javascript.md)
   The SDK every lesson's code actually uses. Use for: every runnable cell.
+- [JS SDK README](https://github.com/typesafe-ai/typesafe-sdk-js#images) and [changelog](https://github.com/typesafe-ai/typesafe-sdk-js/blob/main/docs/changelog.md)
+  The SDK's own docs for `image()`, `withAssets`, `assets` and `box()`, added in v0.7.0 (2026-10-14), plus its breaking changes and zstd request compression. Use for: lesson 10, and any SDK upgrade.
 - [Fan-out pattern](https://docs.typesafe.ai/patterns/fan-out.md), [Composite scoring pattern](https://docs.typesafe.ai/patterns/composite-scoring.md), [Intent routing pattern](https://docs.typesafe.ai/patterns/intent-routing.md), [Function calling cookbook](https://docs.typesafe.ai/cookbooks/function_calling.md)
   Worked composition patterns — the four `/patterns` pages plus one cookbook. Use for: the use-case lessons at the end of the track (lesson 9's primary source is the intent routing page directly).
 - Installed Claude Code skill: `typesafe:typesafe-ai` (`~/.claude/plugins/marketplaces/typesafe-ai/skills/typesafe-ai/SKILL.md`)
