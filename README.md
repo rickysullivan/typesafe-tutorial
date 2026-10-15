@@ -87,6 +87,10 @@ Lesson numbers (in `lessons/`) are global, not per-folder — they mean "positio
 - [Autoresearch feature discovery](cookbooks/classification/autoresearch-feature-discovery.ipynb) — Advanced
 - [Classification using confidence](cookbooks/classification/classification-using-confidence.ipynb) — Beginner
 
+**Images**
+
+- [Roast my image](cookbooks/images/roast-my-image.ipynb) — Beginner
+
 **Integrations**
 
 - [LangGraph + TypeSafe](cookbooks/integrations/langgraph.ipynb) — Intermediate
