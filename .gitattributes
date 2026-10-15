@@ -1,0 +1,2 @@
+# Strip notebook outputs on commit. Register the filter once per clone with `deno task setup`.
+*.ipynb filter=strip-notebook-outputs

@@ -1,3 +1,6 @@
 {
-  "nodeModulesDir": "auto"
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "setup": "git config filter.strip-notebook-outputs.clean 'deno run --quiet --no-config scripts/strip-notebook-outputs.ts'"
+  }
 }
