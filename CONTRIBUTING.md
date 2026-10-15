@@ -12,8 +12,6 @@ Every notebook imports the shared client from `assets/typesafe-client.ts`. Adjus
 
 The shared client sends any headers set in `TYPESAFE_HEADERS` (see the README) with every request. To send a header on one request only, pass it per call instead: `client.systemOne({ ... }, { headers: { "Header-Name": "value" } })`.
 
-The shared module also exports `systemOneRaw`, which calls the HTTP API directly. Use it only for API features the SDK doesn't support yet, such as images and Box in lesson 10, and move back to `client.systemOne` once the SDK catches up.
-
 ## Where things go
 
 ### Lessons
