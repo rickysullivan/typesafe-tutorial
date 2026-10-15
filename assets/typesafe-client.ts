@@ -1,6 +1,6 @@
 // Shared TypeSafe client setup, imported by every lesson notebook.
 import { load } from "https://deno.land/std/dotenv/mod.ts";
-import { TypeSafeClient } from "npm:@typesafe-ai/sdk";
+import { TypeSafeClient } from "npm:@typesafe-ai/sdk@^0.7.0";
 
 await load({ export: true });
 

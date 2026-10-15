@@ -3,7 +3,7 @@
   "specifiers": {
     "jsr:@std/encoding@1": "1.0.11",
     "npm:@langchain/langgraph@*": "1.4.15_@langchain+core@1.2.11_zod@4.6.5",
-    "npm:@typesafe-ai/sdk@*": "0.6.0",
+    "npm:@typesafe-ai/sdk@0.7": "0.7.0",
     "npm:zod@*": "4.6.5"
   },
   "jsr": {
@@ -63,8 +63,8 @@
     "@types/json-schema@7.0.15": {
       "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
     },
-    "@typesafe-ai/sdk@0.6.0": {
-      "integrity": "sha512-IddX+Q0XM+VagOUZFeP7wZjaO4SHMdvnh2zEBdrZZnXedWI3BNK1lKhMx3ayrkFWvVLbVcUHJy6AVZlY+e6Jaw=="
+    "@typesafe-ai/sdk@0.7.0": {
+      "integrity": "sha512-Yg3OZArCQMJx98ut8QVkhx3rFo9ON7pz8Hjzv8c3FGz69Sk8jYftLOlz+Wf6kq6jol/1m08aBnjRAzJr2x3GoQ=="
     },
     "base64-js@1.5.1": {
       "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="
