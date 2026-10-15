@@ -33,6 +33,13 @@
 - [VS Code Jupyter notebooks](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
   Tooling; the fetched page is Python-centric, but the Deno kernel + VS Code path has since been confirmed hands-on across every lesson and cookbook in this repo. Use for: repo setup / README.
 
+## Photo criticism (`cookbooks/images/`)
+
+`cookbooks/images/roast-my-image.ipynb` is original content with no docs.typesafe.ai page behind its rubrics, so it cites this research instead.
+
+- [`research/photo-criticism-rubrics.md`](research/photo-criticism-rubrics.md) (this repo)
+  Ricky's 2026-10-15 research note: published photo-judging criteria and how well raters agree on them, what phones, AI and social feeds changed, and ten new rubrics for computed, generated or templated images, each with its evidence level and restrictions. Use for: every rubric in the roast-my-image cookbook. All ten new rubrics are untested theory, per the note itself.
+
 ## Integrations (LangGraph)
 
 `cookbooks/integrations/` pairs TypeSafe with LangGraph — original content, not from docs.typesafe.ai, so it gets its own sources here rather than being folded into the TypeSafe list above.
