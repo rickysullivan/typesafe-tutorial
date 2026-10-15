@@ -22,10 +22,10 @@ The shared client sends any headers set in `TYPESAFE_HEADERS` (see the README) w
 
 ### Cookbooks
 
-- Cookbooks live under `cookbooks/`, one subfolder per docs.typesafe.ai cookbook category. `integrations/` is for cookbooks original to this repo that pair TypeSafe with an external framework.
+- Cookbooks live under `cookbooks/`, one subfolder per docs.typesafe.ai cookbook category. `integrations/` is for cookbooks original to this repo that pair TypeSafe with an external framework. `images/` is for original cookbooks that use images, until docs.typesafe.ai adds an images category.
 - Cookbooks are not a sequence. Name them by slug (`function-calling.ipynb`) with no number.
 - Cookbooks never say "lesson N covered...". Refer to a lesson by file path, for example `lessons/patterns/0006-speculative-fan-out.ipynb`, because a cookbook has no fixed place in the sequence.
-- Put `**Difficulty:** Beginner`, `Intermediate` or `Advanced` directly under the title. For the docs.typesafe.ai categories, copy the tag from the docs sidebar. For `integrations/`, use your judgement.
+- Put `**Difficulty:** Beginner`, `Intermediate` or `Advanced` directly under the title. For the docs.typesafe.ai categories, copy the tag from the docs sidebar. For `integrations/` and `images/`, use your judgement.
 
 ## Writing a lesson or cookbook
 
