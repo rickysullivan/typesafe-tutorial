@@ -4,9 +4,11 @@ How this repo is put together, and what to follow when you add a lesson or cookb
 
 ## Notebook format
 
-Lessons and cookbooks are Jupyter notebooks (`.ipynb`) running on the Deno kernel, not HTML. Notebooks keep the narrative, the runnable code and the saved output in one file.
+Lessons and cookbooks are Jupyter notebooks (`.ipynb`) running on the Deno kernel, not HTML. Notebooks keep the narrative, the runnable code and, on your machine, the output of your last run in one file.
 
 Install the kernel with `deno jupyter --install`. Open notebooks in VS Code with the Jupyter extension.
+
+Notebooks are committed without outputs. Run `deno task setup` once per clone: it registers a git filter (`scripts/strip-notebook-outputs.ts`, applied by `.gitattributes`) that strips outputs and execution counts as you commit. Your working copy keeps its outputs, and a notebook whose only change is new outputs doesn't show as modified.
 
 Every notebook imports the shared client from `assets/typesafe-client.ts`. Adjust the relative path to match the notebook's depth, for example `../../assets/typesafe-client.ts` from `lessons/core-concepts/`.
 

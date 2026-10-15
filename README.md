@@ -6,6 +6,7 @@ Notebooks built while learning [TypeSafe AI](https://typesafe.ai/)'s System One 
 
 1. Install [Deno](https://deno.com/) (v2+).
 2. Install the Deno Jupyter kernel: `deno jupyter --install`
+   Then, from the repo root, run `deno task setup` once. It registers a git filter that strips notebook outputs when you commit, so run results stay on your machine.
 3. Get a TypeSafe API key from [typesafe.ai](https://typesafe.ai/) and put it in a `.env` file at the repo root:
    ```
    TYPESAFE_API_KEY=your-key-here
